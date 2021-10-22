@@ -30,6 +30,7 @@ const restart = () => {
         Obstacle: Obstacle(world, 'black', {x: 950, y:310}, {height: 65, width: 65}),
         Obstacle1: Obstacle(world, 'black', {x: 1200, y:310}, {height: 65, width: 65}),
         Obstacle2: Obstacle(world, 'black', {x: 1350, y:510}, {height: 65, width: 65}),
+        Spike2: Spike(world, 'blue', {x: 1450, y:600}, {height: 50, width: 50}),
         Obstacle3: Obstacle(world, 'black', {x: 1600, y:510}, {height: 65, width: 65}),
 
         Ground: Ground(world, 'grey', {x: 0, y: screenHeight}, {height: 200, width: screenWidth + 500})

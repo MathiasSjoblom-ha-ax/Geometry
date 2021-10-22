@@ -8,13 +8,15 @@ const Physics = (entities, {touches, time, dispatch}) => {
     let Wall = entities.Wall.body
     let BouncePad = entities.BouncePad.body
     //let FinishFlag = entities.FinishFlag.body
+    //let Saw = entities.Saw.body
     
     /*
     touches.filter(t => t.type === 'press').forEach(t => {
-        Matter.Body.applyForce(Block, Block.position, {x: 0, y: -0.049})
+        Matter.Body.applyForce(Block, Block.position, {x: 0, y: -0.045})
         console.log("Tap")
     });
     */
+
     /*
     Matter.Events.on(engine, 'collisionStart', (event) => {
         let pairs = event.pairs
@@ -37,7 +39,6 @@ const Physics = (entities, {touches, time, dispatch}) => {
         return new Promise(resolve => setTimeout(resolve, ms));
       }
 
-    
     touches.filter(t => t.type === 'press').forEach(t => {
         Matter.Body.setVelocity(entities.Block.body, {
             x: 0,
@@ -93,6 +94,7 @@ const Physics = (entities, {touches, time, dispatch}) => {
 
     //Level object movement
     Matter.Body.translate(entities['Spike'].body, {x: -3, y: 0})
+    Matter.Body.translate(entities['Spike2'].body, {x: -3, y: 0})
     Matter.Body.translate(entities['BouncePad'].body, {x: -3, y: 0})
     Matter.Body.translate(entities['Obstacle'].body, {x: -3, y: 0})
     Matter.Body.translate(entities['Obstacle1'].body, {x: -3, y: 0})

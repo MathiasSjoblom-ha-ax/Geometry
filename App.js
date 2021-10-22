@@ -19,7 +19,6 @@ export default function App() {
   return (
     <ImageBackground source={GeoBack_png} style={styles.background}>
     <View style={{flex: 1}}>
-      <Text style={styles.PointsText}>Attempts: {Attempts}</Text>
       <GameEngine
       ref={(ref) => { setgameEngine(ref)}}
       systems={[Physics]}
@@ -42,6 +41,7 @@ export default function App() {
 
       {!gameRunning ?
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={styles.PointsText}>Attempts: {Attempts}</Text>
           <TouchableOpacity style={{backgroundColor: 'grey', paddingHorizontal: 30, paddingVertical: 10, margin: 10}}
           onPress={() => {
             setgameRunning(true)
@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
   PointsText: {
     textAlign: 'center',
     fontSize: 50,
-    margin: 75
+    margin: 65
   }
 });
