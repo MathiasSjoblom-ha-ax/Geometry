@@ -10,6 +10,7 @@ export default function App() {
 
   const [gameRunning, setgameRunning] = useState(false)
   const [Attempts, setAttempts] = useState(0)
+  const [Victories, setVictories] = useState(0)
   const [gameEngine, setgameEngine] = useState(null)
 
   useEffect(() => {
@@ -27,10 +28,16 @@ export default function App() {
       onEvent={(e) => {
         switch(e.type) {
           case 'Increase_attempt':
-            setAttempts(Attempts + 1)
             setgameRunning(false)
             gameEngine.stop()
             gameEngine.swap(entities())
+            setAttempts(Attempts + 1)
+            break;
+          case 'Complete_level':
+            setgameRunning(false)
+            gameEngine.stop()
+            gameEngine.swap(entities())
+            setVictories(Victories + 1)
             break;
         }
       }}
@@ -42,6 +49,7 @@ export default function App() {
       {!gameRunning ?
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={styles.PointsText}>Attempts: {Attempts}</Text>
+          <Text style={styles.VictoryText}>Victories: {Attempts}</Text>
           <TouchableOpacity style={{backgroundColor: 'grey', paddingHorizontal: 30, paddingVertical: 10, margin: 10}}
           onPress={() => {
             setgameRunning(true)
@@ -81,6 +89,11 @@ const styles = StyleSheet.create({
   PointsText: {
     textAlign: 'center',
     fontSize: 50,
-    margin: 65
+    margin: 15
+  },
+  VictoryText: {
+    textAlign: 'center',
+    fontSize: 40,
+    margin: 5
   }
 });

@@ -3,7 +3,7 @@ import { View, Image } from 'react-native'
 import Matter from 'matter-js'
 import SawBlade_png from '../assets/SawBlade.png'
 
-const Saw = props => {
+const SawBlade = props => {
     const widthBody = props.body.bounds.max.x - props.body.bounds.min.x
     const heightBody = props.body.bounds.max.y - props.body.bounds.min.y
 
@@ -26,7 +26,7 @@ const Saw = props => {
 
 export default (world, color, pos, size) => {
     
-    const initialSaw = Matter.Bodies.rectangle(
+    const initialSawBlade = Matter.Bodies.rectangle(
         pos.x,
         pos.y,
         size.width,
@@ -35,12 +35,12 @@ export default (world, color, pos, size) => {
             isStatic: true
         }
     )
-    Matter.World.add(world, initialSaw)
+    Matter.World.add(world, initialSawBlade)
 
     return{
-        body: initialSaw,
+        body: initialSawBlade,
         color,
         pos,
-        renderer: <Saw/>
+        renderer: <SawBlade/>
     }
 }
