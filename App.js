@@ -5,6 +5,7 @@ import { GameEngine } from 'react-native-game-engine'
 import entities from './entities'
 import Physics from './physics'
 import GeoBack_png from './assets/GeoBack.png'
+import { loadState, saveState } from './Storage/Storage';
 
 export default function App() {
 
@@ -16,6 +17,12 @@ export default function App() {
   useEffect(() => {
     setgameRunning(false)
   }, [])
+
+  /* Async load
+  useEffect(() => {
+    loadState().then((result) => setAttempts(result));
+  }, []);
+  */
 
   return (
     <ImageBackground source={GeoBack_png} style={styles.background}>
@@ -49,7 +56,7 @@ export default function App() {
       {!gameRunning ?
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={styles.PointsText}>Attempts: {Attempts}</Text>
-          <Text style={styles.VictoryText}>Victories: {Attempts}</Text>
+          <Text style={styles.VictoryText}>Victories: {Victories}</Text>
           <TouchableOpacity style={{backgroundColor: 'grey', paddingHorizontal: 30, paddingVertical: 10, margin: 10}}
           onPress={() => {
             setgameRunning(true)
@@ -58,11 +65,12 @@ export default function App() {
             <Text style={{fontWeight: 'bold', color: 'black', fontSize: 30}}>START</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={{backgroundColor: 'grey', paddingHorizontal: 24, paddingVertical: 10}}
+          <TouchableOpacity style={{backgroundColor: 'grey', paddingHorizontal: 31, paddingVertical: 10}}
           onPress={() => {
-            console.log("Next map")
+            setAttempts(0)
+            setVictories(0)
           }}>
-            <Text style={{fontWeight: 'bold', color: 'black', fontSize: 30}}>LEVELS</Text>
+            <Text style={{fontWeight: 'bold', color: 'black', fontSize: 30}}>RESET</Text>
           </TouchableOpacity>
 
           </View> : null}

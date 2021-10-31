@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image } from 'react-native'
+import { Image } from 'react-native'
 import Matter from 'matter-js'
 import SawBlade_png from '../assets/SawBlade.png'
 
@@ -11,13 +11,7 @@ const SawBlade = props => {
     const yBody = props.body.position.y - heightBody / 2
 
     return(
-        <Image
-        style={{
-            position: 'absolute',
-            left: xBody,
-            top: yBody,
-            width: widthBody,
-            height: heightBody
+        <Image style={{position: 'absolute', left: xBody, top: yBody, width: widthBody, height: heightBody
         }}
         source={SawBlade_png}
         />
